@@ -32,10 +32,17 @@ node
 	stage('DeployToTomcat')
 	{	sshagent(['b11caaf7-bc48-4b13-b50c-bd87248ec0de']) 
 	 {
-	sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.126.72.237://opt/apache-tomcat-9.0.34/webapps/"
+	sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.126.72.237:/opt/apache-tomcat-9.0.34/webapps/"
 	 }
 	}
 	
+stage('DeploytoTomcat'){
+
+   sshagent(['f0ef3182-69ef-4169-8368-9ea18a5fe3af']) 
+   {
+     sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.126.135.88:/opt/apache-tomcat-9.0.22/webapps/maven-web-application.war"
+   }
+}
 	stage('EmailNotification')
 	{
 	emailext body: '''The lastest build was successfull.
