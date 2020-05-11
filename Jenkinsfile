@@ -40,6 +40,6 @@ node
 	{
 	emailext body: '''The lastest build was successfull.
 
-Keep developing, keep Growing!!''', subject: 'Build Success!!', to: 'learningbott@gmail.com, devopsautomationbot@gmail.com'
+Keep developing, keep Growing!!''', subject: 'Build Success!!', to: 'devopsautomationbot@gmail.com'
 	}
 }
